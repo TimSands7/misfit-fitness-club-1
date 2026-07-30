@@ -1,0 +1,20 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 2ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Port 4321 is in use, trying another one...","label":"vite","level":"info"}
+{"message":"Port 4322 is in use, trying another one...","label":"vite","level":"info"}
+{"message":" astro  v7.1.5 ready in 13246 ms\n┃ Local    http://localhost:4323/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[optimizer] bundling dependencies...","label":"vite","level":"info"}
+{"message":"[200] / 78ms","label":null,"level":"info"}
+{"message":"[200] /_image 1575ms","label":null,"level":"info"}
+{"message":"[200] /_image 106ms","label":null,"level":"info"}
+{"message":"[200] /_image 111ms","label":null,"level":"info"}
+{"message":"[200] /_image 124ms","label":null,"level":"info"}
+{"message":"[200] /_image 80ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 15ms","label":null,"level":"info"}

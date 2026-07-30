@@ -1,0 +1,56 @@
+---
+---
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+	<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+		<a href="#top" class="shrink-0 font-display text-2xl tracking-widest text-heading">
+			Misfit Fitness Club
+		</a>
+
+		<nav class="hidden items-center gap-10 md:flex">
+			<a href="#training" class="kicker transition-colors hover:text-heading">Training</a>
+			<a href="#space" class="kicker transition-colors hover:text-heading">The Space</a>
+			<a href="#founder" class="kicker transition-colors hover:text-heading">About</a>
+			<a href="#contact" class="kicker border border-brand px-5 py-2.5 text-brand transition-colors hover:bg-brand hover:text-ink">
+				Book a Session
+			</a>
+		</nav>
+
+		<button id="menu-toggle" class="text-heading md:hidden" aria-label="Toggle menu">
+			<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+				<path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		</button>
+	</div>
+
+	<div id="mobile-menu" class="hidden border-t border-border bg-surface px-6 pb-6 pt-4 md:hidden">
+		<nav class="flex flex-col gap-5">
+			<a href="#training" class="kicker hover:text-heading">Training</a>
+			<a href="#space" class="kicker hover:text-heading">The Space</a>
+			<a href="#founder" class="kicker hover:text-heading">About</a>
+			<a href="#contact" class="mt-2 border border-brand px-5 py-3 text-center kicker text-brand">
+				Book a Session
+			</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const header = document.getElementById('site-header');
+	const toggle = document.getElementById('menu-toggle');
+	const menu = document.getElementById('mobile-menu');
+
+	// Transparent at top, solid on scroll
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 40) {
+			header?.classList.add('bg-ink/95', 'backdrop-blur-md', 'border-b', 'border-border');
+		} else {
+			header?.classList.remove('bg-ink/95', 'backdrop-blur-md', 'border-b', 'border-border');
+		}
+	});
+
+	toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+	menu?.querySelectorAll('a').forEach((link) => {
+		link.addEventListener('click', () => menu.classList.add('hidden'));
+	});
+</script>

@@ -1,0 +1,58 @@
+---
+const features = [
+	{
+		title: '1-on-1 Coaching',
+		body: "Every session is just you and your trainer. Undivided attention, real-time corrections, and accountability that group classes simply can't match.",
+	},
+	{
+		title: 'Custom Programming',
+		body: 'No two clients get the same plan. Your workout is built from scratch around your goals, fitness level, injury history, and lifestyle.',
+	},
+	{
+		title: 'Private Home Gym',
+		body: 'A fully equipped private training space — no crowds, no waiting, no judgement. Just focused work in a clean, comfortable environment.',
+	},
+	{
+		title: 'Stretch Therapy',
+		body: 'Danielle is also a NASM Certified Stretch & Flexibility Coach, offering dedicated stretch therapy sessions for recovery and mobility.',
+	},
+	{
+		title: 'Flexible Scheduling',
+		body: "Sessions booked around your life — mornings, evenings, or weekends. We work with your schedule, not against it.",
+	},
+	{
+		title: 'Progress Tracking',
+		body: "Every session is logged so you can see exactly how far you've come and where you're headed next.",
+	},
+];
+---
+
+<section id="training" class="bg-surface py-24 lg:py-32">
+	<div class="mx-auto max-w-7xl px-6 lg:px-10">
+		<div class="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+			<div>
+				<p class="kicker mb-5">What We Offer</p>
+				<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+					Training built<br />around you.
+				</h2>
+			</div>
+			<p class="max-w-sm font-light leading-relaxed text-body lg:text-right">
+				Not a template. Not a class. A fully personalized experience designed to get you real, lasting results.
+			</p>
+		</div>
+
+		<div class="divide-y divide-border">
+			{features.map((f, i) => (
+				<div class="group flex flex-col gap-4 py-8 transition-colors duration-200 hover:bg-raised sm:flex-row sm:items-start sm:gap-10 sm:px-6">
+					<span class="font-display text-5xl leading-none text-earth opacity-60 sm:w-20 sm:shrink-0">
+						{String(i + 1).padStart(2, '0')}
+					</span>
+					<div class="flex-1">
+						<h3 class="font-display text-2xl tracking-wide text-heading">{f.title}</h3>
+						<p class="mt-2 font-light leading-relaxed text-body">{f.body}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

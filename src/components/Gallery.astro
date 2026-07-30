@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import gymMain from '../assets/wide_angle_gym_pic2.png';
+import turfArea from '../assets/turf_area_pic.png';
+import fridge from '../assets/beverage_fridge_pic.png';
+---
+
+<section id="space" class="bg-ink">
+	<!-- Full-bleed banner image with text overlay -->
+	<div class="relative h-[60vh] min-h-80 overflow-hidden">
+		<Image
+			src={gymMain}
+			alt="Misfit Fitness Club main training floor"
+			widths={[768, 1440]}
+			sizes="100vw"
+			class="h-full w-full object-cover object-center"
+		/>
+		<div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-transparent"></div>
+		<div class="absolute inset-0 flex items-end px-6 pb-12 lg:px-16">
+			<div>
+				<p class="kicker mb-4">The Space</p>
+				<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+					A private gym.<br />Built for serious work.
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<!-- Two photos + copy row -->
+	<div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+		<div class="grid gap-6 lg:grid-cols-3">
+			<div class="overflow-hidden">
+				<Image
+					src={turfArea}
+					alt="Turf training area"
+					widths={[600]}
+					sizes="(min-width: 1024px) 33vw, 100vw"
+					class="h-64 w-full object-cover object-center transition-transform duration-700 hover:scale-105 lg:h-72"
+				/>
+			</div>
+			<div class="overflow-hidden">
+				<Image
+					src={fridge}
+					alt="Complimentary beverage fridge"
+					widths={[600]}
+					sizes="(min-width: 1024px) 33vw, 100vw"
+					class="h-64 w-full object-cover object-center transition-transform duration-700 hover:scale-105 lg:h-72"
+				/>
+			</div>
+			<div class="flex flex-col justify-center lg:pl-8">
+				<p class="font-light leading-relaxed text-body">
+					Fully equipped with resistance bands, dumbbells, barbells, a hex bar, squat cage, weight plates, turf, a full-body cable machine, cardio equipment, and more.
+				</p>
+				<p class="mt-4 font-light leading-relaxed text-body">
+					Zero crowds. Zero wait times. Just you, your trainer, and the work.
+				</p>
+				<a href="#contact" class="mt-8 self-start kicker border-b border-brand pb-1 text-brand transition-colors hover:text-brand-dark">
+					Book a tour →
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

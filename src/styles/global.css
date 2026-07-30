@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Misfit Fitness Club v2 — editorial / bold athletic theme
+ * Same dark earth + light blue palette, distinct typographic style.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces */
+  --color-ink: #0f0e0c;
+  --color-surface: #181613;
+  --color-raised: #211e19;
+  --color-navy: #111a27;    /* dark blue-tinted panel for accent sections */
+  --color-border: #2e2922;
+
+  /* Text */
+  --color-heading: #f2ede3;
+  --color-body: #a89b8c;
+  --color-muted: #6b5f54;
+
+  /* Accents */
+  --color-brand: #5eb6d2;
+  --color-brand-dark: #3d97b5;
+  --color-earth: #c4926a;
+
+  /* Type */
+  --font-display: "Bebas Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--color-brand);
+}
+
+::selection {
+  background: var(--color-brand);
+  color: var(--color-ink);
+}

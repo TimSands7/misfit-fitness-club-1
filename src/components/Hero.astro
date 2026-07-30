@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/wide_angle_gym_pic1.png';
+---
+
+<section id="top" class="flex min-h-screen">
+	<!-- Left: text panel -->
+	<div class="flex w-full flex-col justify-center bg-ink px-6 pt-28 pb-16 lg:w-[48%] lg:px-16 lg:pt-0 lg:pb-0">
+		<p class="kicker mb-8 flex items-center gap-3">
+			<span class="inline-block h-px w-8 bg-brand"></span>
+			Denville, NJ · Private Personal Training
+		</p>
+
+		<h1 class="font-display leading-none tracking-wide text-heading" style="font-size: clamp(4rem, 10vw, 8rem);">
+			Your<br />
+			Program.<br />
+			<span class="text-brand">Your<br />Results.</span>
+		</h1>
+
+		<p class="mt-8 max-w-md text-lg font-light leading-relaxed text-body">
+			1-on-1 personal training tailored to your goals, your body, and your schedule — in a fully private home gym with a certified trainer who's fully invested in you.
+		</p>
+
+		<div class="mt-10 flex flex-col gap-3 sm:flex-row">
+			<a href="#contact" class="bg-brand px-8 py-4 text-center font-body font-semibold uppercase tracking-widest text-ink text-sm transition-colors hover:bg-brand-dark">
+				Book a Free Intro
+			</a>
+			<a href="#training" class="border border-border px-8 py-4 text-center font-body font-medium uppercase tracking-widest text-body text-sm transition-colors hover:border-brand hover:text-brand">
+				What We Offer
+			</a>
+		</div>
+
+		<div class="mt-16 grid grid-cols-3 gap-6 border-t border-border pt-10">
+			{[
+				{ stat: '6+', label: 'Years Training' },
+				{ stat: '1:1', label: 'Every Session' },
+				{ stat: 'NASM', label: 'Certified' },
+			].map(({ stat, label }) => (
+				<div>
+					<p class="font-display text-3xl text-brand tracking-wider">{stat}</p>
+					<p class="mt-1 text-xs font-medium uppercase tracking-widest text-muted">{label}</p>
+				</div>
+			))}
+		</div>
+	</div>
+
+	<!-- Right: full-height photo -->
+	<div class="relative hidden overflow-hidden lg:block lg:w-[52%]">
+		<Image
+			src={heroImg}
+			alt="Misfit Fitness Club training floor"
+			widths={[900, 1400]}
+			sizes="52vw"
+			class="absolute inset-0 h-full w-full object-cover object-center"
+			loading="eager"
+			fetchpriority="high"
+		/>
+		<!-- Gradient across top for nav legibility -->
+		<div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/70 to-transparent"></div>
+		<!-- Subtle left edge fade into ink -->
+		<div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-ink to-transparent"></div>
+	</div>
+</section>

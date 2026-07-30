@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import founderImg from '../assets/founder_pic.png';
+---
+
+<section id="founder" class="bg-surface">
+	<div class="flex flex-col lg:flex-row">
+		<!-- Photo — full left column -->
+		<div class="relative min-h-[50vh] overflow-hidden lg:min-h-screen lg:w-[45%]">
+			<Image
+				src={founderImg}
+				alt="Danielle Mills — Certified Personal Trainer at Misfit Fitness Club"
+				widths={[600, 900]}
+				sizes="(min-width: 1024px) 45vw, 100vw"
+				class="h-full w-full object-cover object-top"
+			/>
+			<!-- Subtle overlay on edges -->
+			<div class="absolute inset-0 bg-gradient-to-t from-surface/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface/40"></div>
+		</div>
+
+		<!-- Text — right column -->
+		<div class="flex flex-col justify-center px-6 py-16 lg:w-[55%] lg:px-16 lg:py-24">
+			<p class="kicker mb-6">Meet the Founder</p>
+			<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1;">
+				Danielle Mills
+			</h2>
+			<p class="mt-3 text-xs font-medium uppercase tracking-[0.25em] text-earth">
+				NASM Certified Personal Trainer &amp; Stretch Coach · 6 Years Experience
+			</p>
+
+			<div class="mt-8 space-y-4 font-light leading-relaxed text-body">
+				<p>
+					Hi, I'm Danielle — founder and owner of Misfit Fitness Club, a private personal training gym right out of my garage in Denville, NJ.
+				</p>
+				<p>
+					As a NASM Certified Personal Trainer, I design programs tailored to your individual goals, whether that's functional fitness, strength training, or bodybuilding-style workouts. I also offer stretch therapy sessions as a NASM Certified Stretch &amp; Flexibility Coach — great for recovery and mobility.
+				</p>
+				<p>
+					Over the past six years I've worked as a personal trainer and fitness coach for an all-women's training group, with clients ranging from 14 to over 60 years old. No matter your age or experience level, it's never too late to become the best version of yourself.
+				</p>
+			</div>
+
+			<!-- Who this is for -->
+			<div class="mt-8 border-l-2 border-brand pl-6 space-y-3">
+				<p class="text-xs font-medium uppercase tracking-widest text-muted">This might be you if…</p>
+				{[
+					"You want to get into training but don't know where to start",
+					"You used to be active and want to get back to your roots",
+					"You want to work out with guidance in a private, judgement-free space",
+				].map((item) => (
+					<p class="font-light text-[0.95rem] leading-relaxed text-body">{item}</p>
+				))}
+			</div>
+
+			<a
+				href="#contact"
+				class="mt-10 self-start bg-brand px-8 py-4 font-body font-semibold uppercase tracking-widest text-ink text-sm transition-colors hover:bg-brand-dark"
+			>
+				Train with Danielle
+			</a>
+		</div>
+	</div>
+</section>
