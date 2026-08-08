@@ -1,20 +1,30 @@
 ---
 import { Image } from 'astro:assets';
-import gymMain from '../assets/massage-table.jpeg';
+import gymWide1 from '../assets/wide_angle_gym_pic1_crop.png';
+import gymWide2 from '../assets/wide_angle_gym_pic2_crop2.png';
 import turfArea from '../assets/turf_area_pic.png';
 import fridge from '../assets/beverage_fridge_pic.png';
 ---
 
 <section id="space" class="bg-ink">
-	<!-- Full-bleed banner image with text overlay -->
+	<!-- Full-bleed banner, split into two photos, with text overlay -->
 	<div class="relative h-[60vh] min-h-80 overflow-hidden">
-		<Image
-			src={gymMain}
-			alt="Massage table at Misfit Fitness Club"
-			widths={[768, 1440]}
-			sizes="100vw"
-			class="h-full w-full object-cover object-center"
-		/>
+		<div class="flex h-full">
+			<Image
+				src={gymWide1}
+				alt="Misfit Fitness Club training floor"
+				widths={[600, 900]}
+				sizes="50vw"
+				class="h-full w-1/2 object-cover object-top"
+			/>
+			<Image
+				src={gymWide2}
+				alt="Misfit Fitness Club main training floor"
+				widths={[600, 900]}
+				sizes="50vw"
+				class="h-full w-1/2 object-cover object-[50%_15%]"
+			/>
+		</div>
 		<div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-transparent"></div>
 		<div class="absolute inset-0 flex items-end px-6 pb-12 lg:px-16">
 			<div>
