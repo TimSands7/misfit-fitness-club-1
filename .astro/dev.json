@@ -1,0 +1,13 @@
+{
+	"pid": 43580,
+	"port": 4321,
+	"url": "http://localhost:4321",
+	"urls": {
+		"local": [
+			"http://localhost:4321/"
+		],
+		"network": []
+	},
+	"background": true,
+	"startedAt": "2026-08-09T01:28:09.585Z"
+}
