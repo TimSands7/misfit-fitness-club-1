@@ -1,28 +1,13 @@
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Generated 1ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
-{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":" astro  v7.1.5 ready in 12001 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":" astro  v7.1.5 ready in 2137 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[optimizer] bundling dependencies...","label":"vite","level":"info"}
-{"message":"[200] / 52ms","label":null,"level":"info"}
-{"message":"[200] / 4ms","label":null,"level":"info"}
-{"message":"[200] /_image 1394ms","label":null,"level":"info"}
-{"message":"[200] /_image 1435ms","label":null,"level":"info"}
-{"message":"[200] /_image 74ms","label":null,"level":"info"}
-{"message":"[200] /_image 82ms","label":null,"level":"info"}
-{"message":"[200] /_image 97ms","label":null,"level":"info"}
-{"message":"[200] /_image 116ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] / 13ms","label":null,"level":"info"}
-{"message":"[200] /_image 66ms","label":null,"level":"info"}
-{"message":"[200] /_image 110ms","label":null,"level":"info"}
-{"message":"[200] / 4ms","label":null,"level":"info"}
-{"message":"[200] /_image 81ms","label":null,"level":"info"}
-{"message":"[200] /_image 82ms","label":null,"level":"info"}
-{"message":"[200] /_image 104ms","label":null,"level":"info"}
-{"message":"[200] /_image 110ms","label":null,"level":"info"}
-{"message":"[200] /_image 81ms","label":null,"level":"info"}
-{"message":"[200] /_image 83ms","label":null,"level":"info"}
-{"message":"[200] /_image 108ms","label":null,"level":"info"}
-{"message":"[200] /_image 123ms","label":null,"level":"info"}
+{"message":"[200] / 72ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /_image 472ms","label":null,"level":"info"}
+{"message":"[200] /_image 232ms","label":null,"level":"info"}
+{"message":"[200] /_image 270ms","label":null,"level":"info"}
+{"message":"[200] /_image 296ms","label":null,"level":"info"}
+{"message":"[200] /_image 403ms","label":null,"level":"info"}
+{"message":"[200] /_image 557ms","label":null,"level":"info"}
