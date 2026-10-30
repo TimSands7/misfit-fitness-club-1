@@ -7,9 +7,64 @@ interface Props {
 }
 
 const {
-	title = 'Misfit Fitness Club | Personal Training in Denville, NJ',
-	description = '1-on-1 personal training in Denville, NJ. Certified trainer, fully private home gym, programs built around your specific goals.',
+	title = 'Personal Training & Stretch Therapy in Denville, NJ',
+	description = '1-on-1 personal training and stretch therapy in Denville, NJ. Certified trainer, fully private home gym, programs built around your specific goals.',
 } = Astro.props;
+
+const websiteData = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'Misfit Fitness Club',
+	url: 'https://misfitfitnessclub.com/',
+};
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ExerciseGym',
+	name: 'Misfit Fitness Club',
+	url: 'https://misfitfitnessclub.com/',
+	logo: 'https://misfitfitnessclub.com/favicon.png',
+	description,
+	telephone: '+1-973-768-5854',
+	email: 'misfitfitnessclub@gmail.com',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Denville',
+		addressRegion: 'NJ',
+		addressCountry: 'US',
+	},
+	areaServed: 'Denville, NJ',
+	sameAs: ['https://www.instagram.com/misfitfitnessclub'],
+	founder: {
+		'@type': 'Person',
+		name: 'Danielle Mills',
+		jobTitle: 'NASM Certified Personal Trainer & Stretch and Flexibility Coach',
+	},
+	hasOfferCatalog: {
+		'@type': 'OfferCatalog',
+		name: 'Services',
+		itemListElement: [
+			{
+				'@type': 'Offer',
+				itemOffered: {
+					'@type': 'Service',
+					name: 'Personal Training',
+					serviceType: 'Personal Training',
+					description: '1-on-1 personal training with custom programming in a fully private home gym.',
+				},
+			},
+			{
+				'@type': 'Offer',
+				itemOffered: {
+					'@type': 'Service',
+					name: 'Stretch Therapy',
+					serviceType: 'Stretch Therapy',
+					description: 'Dedicated 1-on-1 assisted stretch therapy sessions for recovery, flexibility, and mobility with a NASM Certified Stretch & Flexibility Coach.',
+				},
+			},
+		],
+	},
+};
 ---
 
 <!DOCTYPE html>
@@ -18,11 +73,14 @@ const {
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
-		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+		<link rel="canonical" href="https://misfitfitnessclub.com/" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 		<title>{title}</title>
+		<script type="application/ld+json" set:html={JSON.stringify(websiteData)} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body>
 		<slot />
