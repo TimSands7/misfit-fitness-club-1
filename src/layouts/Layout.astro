@@ -4,12 +4,17 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+	/** Extra JSON-LD objects for this page, added alongside the site-wide business data. */
+	schema?: object[];
 }
 
 const {
 	title = 'Personal Training & Stretch Therapy in Denville, NJ',
 	description = '1-on-1 personal training and stretch therapy in Denville, NJ. Certified trainer, fully private home gym, programs built around your specific goals.',
+	schema = [],
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
 
 const websiteData = {
 	'@context': 'https://schema.org',
@@ -21,10 +26,11 @@ const websiteData = {
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'ExerciseGym',
+	'@id': 'https://misfitfitnessclub.com/#business',
 	name: 'Misfit Fitness Club',
 	url: 'https://misfitfitnessclub.com/',
 	logo: 'https://misfitfitnessclub.com/favicon.png',
-	description,
+	description: '1-on-1 personal training and stretch therapy in Denville, NJ. Certified trainer, fully private home gym, programs built around your specific goals.',
 	telephone: '+1-973-768-5854',
 	email: 'misfitfitnessclub@gmail.com',
 	address: {
@@ -59,6 +65,7 @@ const structuredData = {
 					'@type': 'Service',
 					name: 'Stretch Therapy',
 					serviceType: 'Stretch Therapy',
+					url: 'https://misfitfitnessclub.com/stretch-therapy/',
 					description: 'Dedicated 1-on-1 assisted stretch therapy sessions for recovery, flexibility, and mobility with a NASM Certified Stretch & Flexibility Coach.',
 				},
 			},
@@ -74,13 +81,14 @@ const structuredData = {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
-		<link rel="canonical" href="https://misfitfitnessclub.com/" />
+		<link rel="canonical" href={canonical} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 		<title>{title}</title>
 		<script type="application/ld+json" set:html={JSON.stringify(websiteData)} />
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+		{schema.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
 	</head>
 	<body>
 		<slot />

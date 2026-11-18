@@ -1,0 +1,446 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import heroImg from '../assets/client_stretch2.jpeg';
+import tableImg from '../assets/IMG_1867.jpeg';
+import sessionImg from '../assets/client_stretch_aerial_crop.jpeg';
+import coachImg from '../assets/client_stretch1.jpeg';
+
+const pageUrl = 'https://misfitfitnessclub.com/stretch-therapy/';
+
+const steps = [
+	{
+		title: 'We Check In',
+		body: "Danielle asks how you're feeling, what's tight, stiff, or uncomfortable, and whether there's anything you'd like her to focus on — or leave alone.",
+	},
+	{
+		title: 'Lie Back & Let Go',
+		body: "You lie on your back while she starts with your upper or lower body, depending on what you trained that day or what's bothering you most.",
+	},
+	{
+		title: 'A Full-Body Stretch',
+		body: 'Wherever she starts, every client gets a full-body stretch within the 30 minutes. You relax — she does the work.',
+	},
+	{
+		title: 'Stand Up & Feel It',
+		body: "Toward the end, you'll stand up, see how your body feels, and point out anything you'd like stretched one more time.",
+	},
+	{
+		title: 'Homework to Take Home',
+		body: 'You leave with simple stretches to do at home and ways to relieve the tension your everyday routine creates.',
+	},
+	{
+		title: 'High Five',
+		body: '…and a "See you in a few days!"',
+	},
+];
+
+const audiences = [
+	{
+		title: 'Athletes & Gym-Goers',
+		body: 'Recover between workouts and keep training without lingering tightness holding you back.',
+	},
+	{
+		title: 'Busy Moms',
+		body: 'For the moms carrying the weight of the world — some of it literally — every single day.',
+	},
+	{
+		title: 'Women in Menopause',
+		body: 'Ease the tightness and stiffness that can come along with hormonal changes.',
+	},
+	{
+		title: 'Hands-On Workers',
+		body: 'Bending down, lifting, and hauling heavy material all day adds up. Give your body a reset.',
+	},
+	{
+		title: 'Desk Workers',
+		body: 'Undo the hours of sitting and questionable posture that come with the 9-to-5.',
+	},
+	{
+		title: 'Anyone Carrying Stress',
+		body: "Stress lives in the body too. Take 30 minutes to relax while someone else does the work — you won't have to lift a finger.",
+	},
+];
+
+const timeline = [
+	{
+		when: 'After Your First Session',
+		body: "You'll likely feel genuinely looser. The areas you targeted may still hold a little stiffness — that's completely normal.",
+	},
+	{
+		when: 'By Sessions Three & Four',
+		body: 'This is where clients start to feel real relief, especially in the spots where tension tends to build up.',
+	},
+	{
+		when: 'Session After Session',
+		body: "Stretch therapy isn't a one-time fix. It's recovery built on repetition, and the results keep building the more consistent you are.",
+	},
+];
+
+const benefits = [
+	'Less stress & tension',
+	'Reduced muscle stiffness',
+	'Improved mobility',
+	'Better sleep quality',
+	'Stronger mind-muscle connection',
+	'Better mood & relaxation',
+];
+
+const faqs = [
+	{
+		q: 'What is stretch therapy?',
+		a: "Stretch therapy, also called assisted stretching, is a one-on-one session where a certified coach guides your body through stretches while you relax. Because you're not holding the positions yourself, your muscles can fully let go.",
+	},
+	{
+		q: 'How long is a session?',
+		a: 'Each session is 30 minutes and always includes a full-body stretch, with extra attention on whatever is feeling tight that day.',
+	},
+	{
+		q: 'Do I need to be flexible or in shape?',
+		a: "Not at all. There's no \"perfect\" client for stretch therapy. Every session meets you where you are, whether you train five days a week or haven't worked out in years.",
+	},
+	{
+		q: 'Do I have to do anything during the session?',
+		a: 'Just relax and breathe. Danielle does the work and checks in with you along the way about what feels good and what you want her to focus on.',
+	},
+	{
+		q: 'How often should I come?',
+		a: 'Stretch therapy works best with consistency. Many clients come back every few days, and most feel real relief by their third or fourth session.',
+	},
+	{
+		q: 'Can I combine stretch therapy with personal training?',
+		a: "Absolutely. Stretching pairs naturally with training, and Danielle will focus on whatever you worked that day. Stretch therapy is also available on its own — you don't need to be a training client.",
+	},
+	{
+		q: 'What should I wear?',
+		a: 'Comfortable clothes you can move in, like workout wear.',
+	},
+	{
+		q: 'Where are you located?',
+		a: 'Misfit Fitness Club is a private studio in Denville, NJ, close to Rockaway, Parsippany, Mountain Lakes, Boonton, and the rest of Morris County. All sessions are by appointment only.',
+	},
+];
+
+const schema = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		'@id': `${pageUrl}#service`,
+		name: 'Stretch Therapy',
+		alternateName: 'Assisted Stretching',
+		serviceType: 'Stretch Therapy',
+		url: pageUrl,
+		description:
+			'30-minute, 1-on-1 assisted stretch therapy sessions in Denville, NJ with a NASM Certified Stretch & Flexibility Coach. Every session includes a full-body stretch tailored to how you feel that day.',
+		provider: { '@id': 'https://misfitfitnessclub.com/#business' },
+		areaServed: ['Denville', 'Rockaway', 'Parsippany', 'Mountain Lakes', 'Boonton', 'Morris County'].map((name) => ({
+			'@type': 'Place',
+			name: `${name}, NJ`,
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map(({ q, a }) => ({
+			'@type': 'Question',
+			name: q,
+			acceptedAnswer: { '@type': 'Answer', text: a },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Stretch Therapy in Denville, NJ | Misfit Fitness Club"
+	description="1-on-1 assisted stretch therapy in Denville, NJ. 30-minute, full-body sessions with a NASM Certified Stretch & Flexibility Coach in a private studio."
+	schema={schema}
+>
+	<Header />
+	<main>
+		<!-- Hero -->
+		<section id="top" class="flex min-h-screen">
+			<div class="relative flex w-full flex-col justify-center px-6 pt-28 pb-16 lg:w-[48%] lg:bg-ink lg:px-16 lg:pt-28 lg:pb-0">
+				<!-- Mobile-only: translucent hero photo behind the text -->
+				<div class="absolute inset-0 lg:hidden">
+					<Image
+						src={heroImg}
+						alt=""
+						widths={[600, 900]}
+						sizes="100vw"
+						class="h-full w-full object-cover object-center opacity-45"
+						loading="eager"
+						fetchpriority="high"
+					/>
+					<div class="absolute inset-0 bg-ink/70"></div>
+				</div>
+
+				<div class="relative z-10">
+					<p class="kicker mb-8 flex items-center gap-3">
+						<span class="inline-block h-px w-8 bg-brand"></span>
+						Denville, NJ · 1-on-1 Assisted Stretching
+					</p>
+
+					<h1 class="font-display leading-none tracking-wide text-heading" style="font-size: clamp(4rem, 10vw, 8rem);">
+						Stretch<br />
+						Therapy.<br />
+						<span class="text-brand">You Just<br />Relax.</span>
+					</h1>
+
+					<p class="mt-8 max-w-md text-lg font-light leading-relaxed text-body">
+						Thirty minutes of hands-on, full-body stretching with a certified stretch coach. You lie back, Danielle does the work, and you walk out looser and lighter than when you came in.
+					</p>
+
+					<div class="mt-10 flex flex-col gap-3 sm:flex-row">
+						<a href="#contact" class="bg-brand px-8 py-4 text-center font-body font-semibold uppercase tracking-widest text-ink text-sm transition-colors hover:bg-brand-dark">
+							Book a Stretch
+						</a>
+						<a href="#session" class="border border-border px-8 py-4 text-center font-body font-medium uppercase tracking-widest text-body text-sm transition-colors hover:border-brand hover:text-brand">
+							What to Expect
+						</a>
+					</div>
+
+					<div class="mt-16 grid grid-cols-3 gap-6 border-t border-border pt-10">
+						{[
+							{ stat: '30 Min', label: 'Full-Body Session' },
+							{ stat: '1:1', label: 'Every Session' },
+							{ stat: 'NASM', label: 'Certified Coach' },
+						].map(({ stat, label }) => (
+							<div>
+								<p class="font-display text-3xl text-brand tracking-wider">{stat}</p>
+								<p class="mt-1 text-xs font-medium uppercase tracking-widest text-muted">{label}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div class="relative hidden overflow-hidden lg:block lg:w-[52%]">
+				<Image
+					src={heroImg}
+					alt="Danielle Mills guiding a client through an assisted stretch at Misfit Fitness Club in Denville, NJ"
+					widths={[900, 1400]}
+					sizes="52vw"
+					class="absolute inset-0 h-full w-full object-cover object-center"
+					loading="eager"
+					fetchpriority="high"
+				/>
+				<div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/70 to-transparent"></div>
+				<div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-ink to-transparent"></div>
+			</div>
+		</section>
+
+		<!-- Why assisted stretching -->
+		<section id="why" class="bg-surface py-24 lg:py-32">
+			<div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-10">
+				<div>
+					<p class="kicker mb-5">Why Stretch Therapy</p>
+					<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+						There are levels<br />to stretching.
+					</h2>
+					<div class="mt-8 space-y-4 font-light leading-relaxed text-body">
+						<p>
+							Stretching on your own only goes so far. When you hold a stretch yourself, part of your body is always working to keep you in position. With assisted stretching, you get to fully let go while Danielle guides each muscle through the stretch for you.
+						</p>
+						<p>
+							It's active recovery without lifting a finger: a full-body stretch built around whatever is tight today, in a private, judgement-free space.
+						</p>
+					</div>
+				</div>
+				<div class="overflow-hidden">
+					<Image
+						src={tableImg}
+						alt="Stretch table inside the private Misfit Fitness Club studio"
+						widths={[600, 900]}
+						sizes="(min-width: 1024px) 45vw, 100vw"
+						class="h-96 w-full object-cover object-[50%_60%] lg:h-[34rem]"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- What a session looks like -->
+		<section id="session" class="bg-ink py-24 lg:py-32">
+			<div class="mx-auto max-w-7xl px-6 lg:px-10">
+				<div class="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+					<div>
+						<p class="kicker mb-5">What to Expect</p>
+						<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+							What a session<br />looks like.
+						</h2>
+					</div>
+					<p class="max-w-sm font-light leading-relaxed text-body lg:text-right">
+						Every session is 30 minutes, one-on-one, and built around how your body feels that day.
+					</p>
+				</div>
+
+				<div class="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
+					<div class="overflow-hidden lg:sticky lg:top-28 lg:self-start">
+						<Image
+							src={sessionImg}
+							alt="Overhead view of a stretch therapy session on the turf at Misfit Fitness Club"
+							widths={[600, 900]}
+							sizes="(min-width: 1024px) 40vw, 100vw"
+							class="h-[28rem] w-full object-cover object-bottom lg:h-[36rem]"
+						/>
+					</div>
+
+					<ol class="divide-y divide-border">
+						{steps.map((s, i) => (
+							<li class="flex flex-col gap-4 py-8 first:pt-0 sm:flex-row sm:items-start sm:gap-10">
+								<span class="font-display text-5xl leading-none text-brand sm:w-20 sm:shrink-0">
+									{String(i + 1).padStart(2, '0')}
+								</span>
+								<div class="flex-1">
+									<h3 class="font-display text-2xl tracking-wide text-heading">{s.title}</h3>
+									<p class="mt-2 font-light leading-relaxed text-body">{s.body}</p>
+								</div>
+							</li>
+						))}
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<!-- Who it's for -->
+		<section id="who" class="bg-surface py-24 lg:py-32">
+			<div class="mx-auto max-w-7xl px-6 lg:px-10">
+				<div class="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+					<div>
+						<p class="kicker mb-5">Who It's For</p>
+						<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+							There's no<br />perfect client.
+						</h2>
+					</div>
+					<p class="max-w-sm font-light leading-relaxed text-body lg:text-right">
+						Athletes and anyone who works out, absolutely — but stretch therapy is for everyday people too.
+					</p>
+				</div>
+
+				<div class="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+					{audiences.map((a) => (
+						<div class="bg-surface p-8 transition-colors duration-200 hover:bg-raised">
+							<span class="mb-5 block h-1 w-8 bg-brand"></span>
+							<h3 class="font-display text-2xl tracking-wide text-heading">{a.title}</h3>
+							<p class="mt-2 font-light leading-relaxed text-body">{a.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- What you'll notice -->
+		<section id="results" class="bg-ink py-24 lg:py-32">
+			<div class="mx-auto max-w-7xl px-6 lg:px-10">
+				<p class="kicker mb-5">What You'll Notice</p>
+				<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+					Recovery built<br />on repetition.
+				</h2>
+
+				<div class="mt-16 grid gap-10 border-t border-border pt-10 md:grid-cols-3">
+					{timeline.map((t) => (
+						<div>
+							<p class="kicker mb-4 text-earth">{t.when}</p>
+							<p class="font-light leading-relaxed text-body">{t.body}</p>
+						</div>
+					))}
+				</div>
+
+				<div class="mt-16">
+					<p class="text-xs font-medium uppercase tracking-widest text-muted">Clients also tell us they notice…</p>
+					<ul class="mt-6 flex flex-wrap gap-3">
+						{benefits.map((b) => (
+							<li class="border border-border px-5 py-3 text-sm font-light text-heading">{b}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonial -->
+		<section class="bg-surface py-24 lg:py-32">
+			<figure class="mx-auto max-w-4xl px-6 lg:px-10">
+				<span class="font-display text-8xl leading-none text-brand" aria-hidden="true">“</span>
+				<blockquote class="-mt-6 text-2xl font-light leading-relaxed text-heading lg:text-3xl">
+					I would always stretch after running or working out but never felt totally decompressed. The first time I went to Danielle it was made clear to me that there are levels to stretching. After our first session I felt an immediate difference and had much more mobility. I could not recommend her stretching services enough. Absolute game changer!
+				</blockquote>
+				<figcaption class="mt-8 flex items-center gap-3 kicker">
+					<span class="inline-block h-px w-8 bg-brand"></span>
+					Stretch Therapy Client
+				</figcaption>
+			</figure>
+		</section>
+
+		<!-- Your stretch coach -->
+		<section id="coach" class="bg-ink">
+			<div class="flex flex-col lg:flex-row">
+				<div class="relative min-h-[60vh] overflow-hidden lg:min-h-[80vh] lg:w-[45%]">
+					<Image
+						src={coachImg}
+						alt="Danielle Mills, NASM Certified Stretch & Flexibility Coach, stretching a client's leg"
+						widths={[600, 900]}
+						sizes="(min-width: 1024px) 45vw, 100vw"
+						class="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink/40"></div>
+				</div>
+
+				<div class="flex flex-col justify-center px-6 py-16 lg:w-[55%] lg:px-16 lg:py-24">
+					<p class="kicker mb-6">Your Stretch Coach</p>
+					<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1;">
+						Danielle Mills
+					</h2>
+					<p class="mt-3 text-xs font-medium uppercase tracking-[0.25em] text-earth">
+						NASM Certified Stretch &amp; Flexibility Coach · Personal Trainer
+					</p>
+					<div class="mt-8 space-y-4 font-light leading-relaxed text-body">
+						<p>
+							Danielle is the founder of Misfit Fitness Club and a NASM Certified Stretch &amp; Flexibility Coach. She has spent six years coaching clients from 14 to over 60, and she brings that same personal attention to every stretch session.
+						</p>
+						<p>
+							Every session is tailored to how your body feels that day, and you'll always leave with what you need to keep feeling good until your next visit.
+						</p>
+					</div>
+					<a href="/#founder" class="mt-10 self-start kicker border-b border-brand pb-1 text-brand transition-colors hover:text-brand-dark">
+						More about Danielle →
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section id="faq" class="bg-surface py-24 lg:py-32">
+			<div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_2fr] lg:gap-20 lg:px-10">
+				<div>
+					<p class="kicker mb-5">Questions</p>
+					<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+						Stretch therapy<br />FAQ.
+					</h2>
+				</div>
+
+				<div class="divide-y divide-border border-y border-border">
+					{faqs.map(({ q, a }) => (
+						<details class="group">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+								<h3 class="font-display text-xl tracking-wide text-heading lg:text-2xl">{q}</h3>
+								<span class="text-2xl leading-none text-brand transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+							</summary>
+							<p class="pb-6 font-light leading-relaxed text-body">{a}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<CTA
+			kicker="Book a Stretch"
+			heading="Ready to"
+			accent="decompress?"
+			body="Call or email to book your first stretch therapy session. Tell Danielle what's been feeling tight, and she'll take it from there."
+			tags={['Denville, NJ', '30-Minute Sessions', 'By Appointment Only']}
+		/>
+	</main>
+	<Footer />
+</Layout>
