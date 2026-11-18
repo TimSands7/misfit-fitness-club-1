@@ -15,6 +15,7 @@ const features = [
 	{
 		title: 'Stretch Therapy',
 		body: 'Danielle is also a NASM Certified Stretch & Flexibility Coach, offering dedicated stretch therapy sessions for recovery and mobility.',
+		link: { href: '/stretch-therapy/', label: 'Learn about stretch therapy →' },
 	},
 	{
 		title: 'Flexible Scheduling',
@@ -50,6 +51,11 @@ const features = [
 					<div class="flex-1">
 						<h3 class="font-display text-2xl tracking-wide text-heading">{f.title}</h3>
 						<p class="mt-2 font-light leading-relaxed text-body">{f.body}</p>
+						{f.link && (
+							<a href={f.link.href} class="mt-4 inline-block kicker border-b border-brand pb-1 text-brand transition-colors hover:text-brand-dark">
+								{f.link.label}
+							</a>
+						)}
 					</div>
 				</div>
 			))}
