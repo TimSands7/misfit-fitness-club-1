@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import stretchImg from '../assets/IMG_1875.jpeg';
+---
+
+<section id="stretch" class="bg-raised py-24 lg:py-32">
+	<div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-10">
+		<div>
+			<p class="kicker mb-5">Stretch Therapy</p>
+			<h2 class="font-display tracking-wide text-heading" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1;">
+				Let someone else<br /><span class="text-brand">do the work.</span>
+			</h2>
+			<p class="mt-8 max-w-md font-light leading-relaxed text-body">
+				30-minute, 1-on-1 assisted stretch sessions with Danielle, a NASM Certified Stretch &amp; Flexibility Coach. You lie back and relax while she works you through a full-body stretch built around whatever is tight that day.
+			</p>
+			<a
+				href="/stretch-therapy/"
+				class="mt-10 inline-block bg-brand px-8 py-4 text-center font-body font-semibold uppercase tracking-widest text-ink text-sm transition-colors hover:bg-brand-dark"
+			>
+				Explore Stretch Therapy
+			</a>
+		</div>
+
+		<div class="overflow-hidden">
+			<Image
+				src={stretchImg}
+				alt="Danielle Mills stretching a client at Misfit Fitness Club"
+				widths={[600, 900]}
+				sizes="(min-width: 1024px) 45vw, 100vw"
+				class="h-96 w-full object-cover object-[50%_45%] lg:h-[34rem]"
+			/>
+		</div>
+	</div>
+</section>
